@@ -1,0 +1,49 @@
+# TODO: Completar docker-compose.yml
+version: '3.8'
+
+services:
+  # Servicio principal de la API
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # TODO: Variables de entorno
+    depends_on:
+      # TODO: Dependencias
+    volumes:
+      # TODO: Volúmenes para logs y modelos
+    restart: unless-stopped
+    healthcheck:
+      # TODO: Health check
+
+  # Base de datos PostgreSQL
+  db:
+    image: postgres:15
+    environment:
+      # TODO: Configuración de PostgreSQL
+    volumes:
+      # TODO: Persistencia de datos
+    ports:
+      - "5432:5432"
+
+  # Redis para cache
+  redis:
+    image: redis:7-alpine
+    # TODO: Configuración de Redis
+
+  # Nginx como reverse proxy
+  nginx:
+    image: nginx:alpine
+    # TODO: Configuración de Nginx
+
+  # Prometheus para métricas
+  prometheus:
+    image: prom/prometheus
+    # TODO: Configuración de monitoreo
+
+volumes:
+  # TODO: Definir volúmenes
+
+networks:
+  # TODO: Definir redes

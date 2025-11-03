@@ -1,0 +1,17 @@
+# Ignorar el entorno virtual local
+.venv/
+
+# Ignorar archivos de configuración del IDE
+.idea/
+.vscode/
+
+# Ignorar el caché de Python
+__pycache__/
+*.pyc
+
+# Ignorar el repositorio de Git
+.git/
+.gitignore
+
+# Ignorar el propio archivo .dockerignore
+.dockerignore
