@@ -1,0 +1,171 @@
+================================================================================
+COMANDOS PARA COPIAR Y PEGAR - SUBIR A GITHUB
+================================================================================
+
+PASO 1: Abre este link en tu navegador
+================================================================================
+https://github.com/new
+
+
+PASO 2: En la página de GitHub, configura así:
+================================================================================
+Repository name: nlp-produccion
+Description: Sistema completo de NLP en Producción con Docker y FastAPI
+Public: ✅ (seleccionado)
+Add a README: ❌ (NO marcar)
+Add .gitignore: ❌ (NO marcar)
+Choose a license: ❌ (NO marcar)
+
+Luego click en: "Create repository"
+
+
+PASO 3: Copia estos comandos y ejecútalos (REEMPLAZA "TU-USUARIO")
+================================================================================
+
+NOTA: Reemplaza "TU-USUARIO" con tu usuario REAL de GitHub
+
+Ejemplo:
+Si tu usuario es "juan123", reemplaza:
+  https://github.com/TU-USUARIO/nlp-produccion.git
+Con:
+  https://github.com/juan123/nlp-produccion.git
+
+--------------------------------------------------------------------------------
+
+git remote remove origin
+
+git remote add origin https://github.com/TU-USUARIO/nlp-produccion.git
+
+git push -u origin master
+
+--------------------------------------------------------------------------------
+
+
+PASO 4: Cuando te pida credenciales
+================================================================================
+
+Username: (tu usuario de GitHub)
+Password: (tu contraseña O tu Personal Access Token si tienes 2FA)
+
+
+PASO 5: Verifica que subió correctamente
+================================================================================
+
+Abre este link (reemplaza TU-USUARIO):
+https://github.com/TU-USUARIO/nlp-produccion
+
+Debes ver:
+✅ README.md
+✅ Archivos ejercicio_*.py
+✅ Documentación (DIAPOSITIVAS.md, guías, etc.)
+✅ Dockerfile y docker-compose.yml
+
+
+PASO 6: Comparte con tus alumnos
+================================================================================
+
+Envíales este link:
+https://github.com/TU-USUARIO/nlp-produccion
+
+Y estas instrucciones:
+
+    git clone https://github.com/TU-USUARIO/nlp-produccion.git
+    cd nlp-produccion
+    python -m venv .venv
+    .venv\Scripts\activate  (Windows)
+    source .venv/bin/activate  (Linux/Mac)
+    pip install -r requirements.txt
+
+
+================================================================================
+SI TIENES 2FA (Two-Factor Authentication)
+================================================================================
+
+GitHub ya no acepta contraseñas normales si tienes 2FA activado.
+Necesitas crear un Personal Access Token:
+
+1. Ve a: https://github.com/settings/tokens
+2. Click: "Generate new token (classic)"
+3. Note: "Token para repos"
+4. Expiration: 90 days
+5. Marca solo: ✅ repo (todos los sub-items)
+6. Click: "Generate token"
+7. COPIA EL TOKEN (solo lo verás una vez!)
+
+Cuando git push te pida "Password:", pega el token (no tu contraseña).
+
+
+================================================================================
+COMANDOS DE VERIFICACIÓN
+================================================================================
+
+Ver remote configurado:
+git remote -v
+
+Ver commits:
+git log --oneline -5
+
+Ver qué archivos se subirán:
+git ls-files
+
+
+================================================================================
+EJEMPLO COMPLETO CON USUARIO "juan123"
+================================================================================
+
+# Usuario de ejemplo: juan123
+
+git remote remove origin
+git remote add origin https://github.com/juan123/nlp-produccion.git
+git push -u origin master
+
+# Link para verificar:
+# https://github.com/juan123/nlp-produccion
+
+# Link para compartir con alumnos:
+# https://github.com/juan123/nlp-produccion
+
+
+================================================================================
+¿PROBLEMAS?
+================================================================================
+
+Error: "remote origin already exists"
+Solución:
+    git remote remove origin
+    (luego vuelve a agregar el remote)
+
+Error: "Permission denied"
+Solución:
+    - Verifica usuario y contraseña
+    - Si tienes 2FA, usa Personal Access Token
+
+Error: "Updates were rejected"
+Solución:
+    git pull origin master --rebase
+    git push
+
+
+================================================================================
+NOTA FINAL
+================================================================================
+
+TODO está listo en tu repositorio local. Solo necesitas:
+1. Crear el repo en GitHub (web)
+2. Ejecutar los 3 comandos git
+3. Compartir el link
+
+¡Es súper rápido! Máximo 5 minutos.
+
+
+================================================================================
+ARCHIVOS DE AYUDA INCLUIDOS
+================================================================================
+
+Si prefieres un script automático:
+- Windows: ejecuta "subir_a_github.bat"
+- Linux/Mac: ejecuta "./subir_a_github.sh"
+
+Para más detalles:
+- Lee "PASOS_RAPIDOS_GITHUB.md"
+- O lee "INSTRUCCIONES_GITHUB.md" (más completo)
