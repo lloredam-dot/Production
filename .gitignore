@@ -76,6 +76,13 @@ htmlcov/
 # Claude
 .claude/settings.local.json
 
-# Scripts de preparación (no necesarios en GitHub)
+# Archivos solo para uso local del instructor (NO subir a GitHub)
+TODOS_LOS_EJERCICIOS.txt
+DIAPOSITIVAS.md
+subir_a_github.bat
+subir_a_github.sh
 preparar_para_alumnos.bat
 preparar_para_alumnos.sh
+COMANDOS_COPIAR_PEGAR.txt
+PASOS_RAPIDOS_GITHUB.md
+INSTRUCCIONES_GITHUB.md
