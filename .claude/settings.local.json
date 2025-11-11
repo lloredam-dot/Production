@@ -3,7 +3,16 @@
     "allow": [
       "Bash(git init:*)",
       "Bash(test:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh --version:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(chmod +x \"C:\\Users\\jhonnconnor367\\PycharmProjects\\text-analyzer-api\\configurar.sh\")",
+      "Bash(dir:*)",
+      "Bash(tree:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
