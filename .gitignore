@@ -4,28 +4,78 @@ __pycache__/
 *$py.class
 *.so
 .Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
 .venv/
 venv/
 ENV/
 env/
 
 # IDE
-.idea/
 .vscode/
+.idea/
+.qodo/
 *.swp
 *.swo
 *~
-
-# Qodo
-.qodo/
-
-# OS
 .DS_Store
-Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
 
 # Logs
 *.log
 
 # Database
 *.db
+*.sqlite
 *.sqlite3
+
+# Cache
+.cache/
+*.cache
+
+# Models (muy pesados para GitHub)
+models/
+*.pth
+*.h5
+*.pkl
+*.joblib
+
+# Data (si es muy grande)
+data/
+*.csv
+*.json
+
+# Temporary files
+temp/
+tmp/
+temp_*/
+temp_dokerizacion/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Claude
+.claude/settings.local.json
+
+# Scripts de preparación (no necesarios en GitHub)
+preparar_para_alumnos.bat
+preparar_para_alumnos.sh
