@@ -1,49 +1,83 @@
-# TODO: Completar docker-compose.yml
-version: '3.8'
-
 services:
-  # Servicio principal de la API
   api:
     build: .
     ports:
       - "8000:8000"
     environment:
-      # TODO: Variables de entorno
+      - DATABASE_URL=postgresql://user:password@db:5432/mydatabase
+      - REDIS_URL=redis://redis:6379
     depends_on:
-      # TODO: Dependencias
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
     volumes:
-      # TODO: Volúmenes para logs y modelos
+      - ./logs:/app/logs
+      - ./models:/app/models
     restart: unless-stopped
     healthcheck:
-      # TODO: Health check
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
-  # Base de datos PostgreSQL
   db:
     image: postgres:15
     environment:
-      # TODO: Configuración de PostgreSQL
+      - POSTGRES_DB=mydatabase
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
     volumes:
-      # TODO: Persistencia de datos
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d mydatabase"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
 
-  # Redis para cache
   redis:
     image: redis:7-alpine
-    # TODO: Configuración de Redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
 
-  # Nginx como reverse proxy
   nginx:
     image: nginx:alpine
-    # TODO: Configuración de Nginx
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+    depends_on:
+      - api
+    restart: always
 
-  # Prometheus para métricas
   prometheus:
     image: prom/prometheus
-    # TODO: Configuración de monitoreo
+    ports:
+      - "9090:9090"
+    volumes:
+      - type: bind
+        source: ./prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+        read_only: true
+    depends_on:
+      - api
+    restart: always
 
 volumes:
-  # TODO: Definir volúmenes
+  postgres_data:
 
 networks:
-  # TODO: Definir redes
+  default:
+    driver: bridge
